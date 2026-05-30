@@ -11,8 +11,12 @@ import time
 
 class VoiceTyper:
     def __init__(self):
+        models = ['tiny','base','small','medium','large', 'turbo']
+        for i in range(6):
+            print(f'{i+1} {models[i]}')
+        size = input('Choose a model(Type number 1-6): ')
         print("Loading Whisper model... (this may take a moment)")
-        self.model = whisper.load_model("small")
+        self.model = whisper.load_model(models[size-1])
         self.keyboard_controller = Controller()
         self.is_recording = False
         self.audio_data = []
